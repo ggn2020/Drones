@@ -76,21 +76,21 @@ namespace Drones.Data
                     new Medicament
                     {
                         Codigo="ASP_125",
-                        Imagen="--",
+                        Imagen="Resources\\Images\\asp.jpg",
                         Nombre="Aspirina",
                         Peso=25
                     },
                     new Medicament
                     {
                         Codigo="DRLG_200",
-                        Imagen="--",
+                        Imagen="Resources\\Images\\dur.jpg",
                         Nombre="Duralgina",
                         Peso=30
                     },
                     new Medicament
                     {
                         Codigo="VIT_C_500",
-                        Imagen="--",
+                        Imagen="Resources\\Images\\vit-c.jpg",
                         Nombre="Vitamina-C",
                         Peso=40
                     }
