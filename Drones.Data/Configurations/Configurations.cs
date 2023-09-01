@@ -8,6 +8,7 @@ namespace Drones.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Drone> builder)
         {
+            builder.HasIndex(n => n.Modelo).IsUnique();
             builder.Property(n => n.NumeroSerie).HasMaxLength(100)
                 .IsRequired();
             builder.Property(n => n.Modelo)
@@ -26,9 +27,10 @@ namespace Drones.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Medicament> builder)
         {
+            builder.HasIndex(m => m.Nombre).IsUnique();
+
             builder.Property(m => m.Peso).IsRequired();
             builder.Property(m => m.Nombre).IsRequired();
-            builder.Property(m => m.Imagen).IsRequired();
             builder.Property(m => m.Codigo).IsRequired();
         }
     }

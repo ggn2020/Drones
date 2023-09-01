@@ -14,28 +14,14 @@ namespace Drones.Data.Repositories
 
         public async Task<Medicament> Create(Medicament medicament)
         {
-            try
-            {
-                _dbContext.Medicamentos.Add(medicament);
-                await _dbContext.SaveChangesAsync();
-                return medicament;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _dbContext.Medicamentos.Add(medicament);
+            await _dbContext.SaveChangesAsync();
+            return medicament;
         }
 
         public async Task<Medicament> GetById(int id)
         {
-            try
-            {
-                return await _dbContext.Medicamentos.FindAsync(id);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return await _dbContext.Medicamentos.FindAsync(id);
         }
 
         public async Task<List<Medicament>> GetByIds(List<int> ids)
