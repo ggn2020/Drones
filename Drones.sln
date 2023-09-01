@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drones.Application", "Drones.Application\Drones.Application.csproj", "{18E506FD-3FFC-47AD-A952-4D735862A01F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drones.Domain", "Drones.Domain\Drones.Domain.csproj", "{0901F0D1-0F64-4E98-B8C1-DF3EE3F6E5B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drones.Data", "Drones.Data\Drones.Data.csproj", "{0901F0D1-0F64-4E98-B8C1-DF3EE3F6E5B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drones.Api", "Drones.Api\Drones.Api.csproj", "{791C622B-55F4-44C4-93D7-AB2DB2688D40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drones.Api", "Drones.Api\Drones.Api.csproj", "{791C622B-55F4-44C4-93D7-AB2DB2688D40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿using Drones.Domain.Entities;
+﻿using Drones.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Drones.Application.Common.Interfaces

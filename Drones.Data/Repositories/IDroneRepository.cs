@@ -1,6 +1,6 @@
-﻿using Drones.Domain.Entities;
+﻿using Drones.Data.Entities;
 
-namespace Drones.Domain.Repositories
+namespace Drones.Data.Repositories
 {
     public interface IDroneRepository
     {

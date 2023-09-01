@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Drones.Domain
+namespace Drones.Data
 {
     public enum EstadosDron
     {

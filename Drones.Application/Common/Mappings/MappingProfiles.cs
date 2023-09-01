@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Drones.Application.Common.Models;
-using Drones.Domain.Entities;
+using Drones.Data.Entities;
 
 namespace Drones.Application.Common.Mappings
 {
@@ -9,6 +9,9 @@ namespace Drones.Application.Common.Mappings
         public MappingProfiles()
         {
             CreateMap<Drone, DroneDto>().ReverseMap();
+            CreateMap<Drone, DroneForCreationDto>().ReverseMap();
+            CreateMap<Medicament, MedicamentForCreationDto>().ReverseMap();
+            CreateMap<Medicament, MedicamentDto>().ReverseMap();
         }
     }
 }

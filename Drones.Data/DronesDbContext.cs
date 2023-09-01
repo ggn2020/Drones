@@ -1,8 +1,8 @@
-﻿using Drones.Domain.Entities;
+﻿using Drones.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace Drones.Domain
+namespace Drones.Data
 {
     public class DronesDbContext : DbContext
     {

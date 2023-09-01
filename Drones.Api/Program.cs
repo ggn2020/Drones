@@ -1,6 +1,5 @@
 using Drones.Application;
-using Drones.Domain;
-
+using Drones.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDomainServices(builder.Configuration);
+builder.Services.AddDataServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
 var app = builder.Build();

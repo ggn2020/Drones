@@ -1,4 +1,4 @@
-﻿namespace Drones.Domain.Entities
+﻿namespace Drones.Data.Entities
 {
     public class Drone
     {
@@ -8,5 +8,7 @@
         public int PesoLimite { get; set; }
         public int CapacidadBateria { get; set; }
         public EstadosDron Estado { get; set; }
+
+        public List<Medicament> Medicaments { get; } = new();
     }
 }

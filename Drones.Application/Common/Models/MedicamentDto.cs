@@ -1,6 +1,6 @@
-﻿namespace Drones.Domain.Entities
+﻿namespace Drones.Application.Common.Models
 {
-    public class Medicament
+    public class MedicamentDto
     {
         public int Id { get; set; }
         public string? Nombre { get; set; }

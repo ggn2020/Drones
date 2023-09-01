@@ -1,8 +1,8 @@
-﻿using Drones.Domain.Entities;
+﻿using Drones.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Drones.Domain.Configurations
+namespace Drones.Data.Configurations
 {
     public class DroneConf : IEntityTypeConfiguration<Drone>
     {
@@ -18,6 +18,18 @@ namespace Drones.Domain.Configurations
                 .IsRequired();
             builder.Property(n => n.CapacidadBateria)
                 .IsRequired();
+            builder.HasMany(e => e.Medicaments).WithMany();
+        }
+    }
+
+    public class MedicamentConf : IEntityTypeConfiguration<Medicament>
+    {
+        public void Configure(EntityTypeBuilder<Medicament> builder)
+        {
+            builder.Property(m => m.Peso).IsRequired();
+            builder.Property(m => m.Nombre).IsRequired();
+            builder.Property(m => m.Imagen).IsRequired();
+            builder.Property(m => m.Codigo).IsRequired();
         }
     }
 }
