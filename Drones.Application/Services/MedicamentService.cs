@@ -43,7 +43,6 @@ namespace Drones.Application.Services
             {
                 return new ApiResponse<MedicamentDto> { Success = false, Error = ex.Message, Code = HttpStatusCode.InternalServerError };
             }
-
         }
     }
 }
