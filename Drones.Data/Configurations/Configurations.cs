@@ -8,7 +8,7 @@ namespace Drones.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Drone> builder)
         {
-            builder.HasIndex(n => n.Modelo).IsUnique();
+            builder.HasIndex(n => n.NumeroSerie).IsUnique();
             builder.Property(n => n.NumeroSerie).HasMaxLength(100)
                 .IsRequired();
             builder.Property(n => n.Modelo)

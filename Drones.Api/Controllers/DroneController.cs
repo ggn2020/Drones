@@ -18,7 +18,7 @@ namespace Drones.Api.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<DroneDto>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             var result = await _droneService.GetById(id);
             return StatusCode((int)result.Code, result);
@@ -27,7 +27,7 @@ namespace Drones.Api.Controllers
         [HttpGet("{id}/load")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<int>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> LoadedWeight(int id)
+        public async Task<IActionResult> LoadedWeight(int id)
         {
             var result = await _droneService.CheckLoadedWeight(id);
             return StatusCode((int)result.Code, result);
@@ -36,7 +36,7 @@ namespace Drones.Api.Controllers
         [HttpGet("available")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<ApiResponse<DroneDto>>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> GetAvailable()
+        public async Task<IActionResult> GetAvailable()
         {
             var result = await _droneService.GetAvailable();
             return StatusCode((int)result.Code, result);
