@@ -16,6 +16,7 @@ namespace Drones.Data
             //services.AddScoped<DronesDbContext>(provider => provider.GetRequiredService<DronesDbContext>());
             services.AddScoped<IDroneRepository, DroneRepository>();
             services.AddScoped<IMedicamentRepository, MedicamentRepository>();
+            services.AddScoped<ApplicationDbContextInitialiser>();
 
             return services;
         }

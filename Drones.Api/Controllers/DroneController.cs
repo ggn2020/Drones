@@ -59,6 +59,11 @@ namespace Drones.Api.Controllers
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var result = await _droneService.Register(drone);
+
+            if (result.Success)
+            {
+                return CreatedAtAction(nameof(GetById), new { id = result.Data.Id }, result.Data);
+            }
             return StatusCode((int)result.Code, result);
         }
 

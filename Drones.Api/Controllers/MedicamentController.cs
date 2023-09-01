@@ -20,19 +20,19 @@ namespace Drones.Api.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _medicamentService.GetById(id);
-            if (result is null) return NotFound();
-            return Ok(result);
+            return StatusCode((int)result.Code, result);
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(MedicamentDto))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ApiResponse<MedicamentDto>))]
         public async Task<IActionResult> CreateMedicament([FromBody] MedicamentForCreationDto medicament)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var result = await _medicamentService.Create(medicament);
-            if (result is null) return StatusCode(StatusCodes.Status500InternalServerError);
-            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+
+            if (result.Success) return CreatedAtAction(nameof(GetById), new { id = result.Data.Id }, result);
+            return StatusCode((int)result.Code, result);
         }
     }
 }

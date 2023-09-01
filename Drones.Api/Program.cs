@@ -14,6 +14,14 @@ builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 
+// Initialise and seed database
+using (var scope = app.Services.CreateScope())
+{
+    var initializer = scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitialiser>();
+    await initializer.InitializeAsync();
+    await initializer.SeedAsync();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

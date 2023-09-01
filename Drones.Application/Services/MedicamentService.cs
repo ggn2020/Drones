@@ -2,6 +2,7 @@
 using Drones.Application.Common.Models;
 using Drones.Data.Entities;
 using Drones.Data.Repositories;
+using System.Net;
 
 namespace Drones.Application.Services
 {
@@ -16,16 +17,33 @@ namespace Drones.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<MedicamentDto> Create(MedicamentForCreationDto medicament)
+        public async Task<ApiResponse<MedicamentDto>> Create(MedicamentForCreationDto medicament)
         {
-            var result = await _repository.Create(_mapper.Map<Medicament>(medicament));
-            return _mapper.Map<MedicamentDto>(result);
+            try
+            {
+                var result = await _repository.Create(_mapper.Map<Medicament>(medicament));
+                return new ApiResponse<MedicamentDto> { Data = _mapper.Map<MedicamentDto>(result), Code = HttpStatusCode.Created };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<MedicamentDto> { Success = false, Error = ex.Message, Code = HttpStatusCode.InternalServerError };
+            }
         }
 
-        public async Task<MedicamentDto> GetById(int id)
+        public async Task<ApiResponse<MedicamentDto>> GetById(int id)
         {
-            var result = await _repository.GetById(id);
-            return _mapper.Map<MedicamentDto>(result);
+            try
+            {
+                var result = await _repository.GetById(id);
+                if (result is null) return new ApiResponse<MedicamentDto> { Success = false, Error = "Medicamento no encontrado", Code = HttpStatusCode.NotFound };
+                return new ApiResponse<MedicamentDto> { Data = _mapper.Map<MedicamentDto>(result) };
+
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<MedicamentDto> { Success = false, Error = ex.Message, Code = HttpStatusCode.InternalServerError };
+            }
+
         }
     }
 }

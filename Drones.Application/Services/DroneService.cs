@@ -108,7 +108,7 @@ namespace Drones.Application.Services
             try
             {
                 var result = await _repository.RegisterDrone(_mapper.Map<Drone>(drone));
-                return new ApiResponse<DroneDto> { Data = _mapper.Map<DroneDto>(result) };
+                return new ApiResponse<DroneDto> { Data = _mapper.Map<DroneDto>(result), Code = HttpStatusCode.Created };
             }
             catch (Exception ex)
             {

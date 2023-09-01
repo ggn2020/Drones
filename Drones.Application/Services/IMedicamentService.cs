@@ -4,7 +4,7 @@ namespace Drones.Application.Services
 {
     public interface IMedicamentService
     {
-        Task<MedicamentDto> Create(MedicamentForCreationDto medicament);
-        Task<MedicamentDto> GetById(int id);
+        Task<ApiResponse<MedicamentDto>> Create(MedicamentForCreationDto medicament);
+        Task<ApiResponse<MedicamentDto>> GetById(int id);
     }
 }
